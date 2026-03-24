@@ -1,0 +1,26 @@
+
+   INFO  Running migrations.  
+
+  2026_03_08_105937_create_booking_table  7.25ms FAIL
+
+   Illuminate\Database\QueryException 
+
+  SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'id' (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: hbms, SQL: create table `booking` (`id` bigint unsigned not null auto_increment primary key, `Name` varchar(255) null, `Date_time` varchar(255) null, `status` smallint not null comment '1 - Booked , 2 - Cancelled , 3 - fullfiled', `created_at` timestamp null, `updated_at` timestamp null, `id` int not null) default character set utf8mb4 collate 'utf8mb4_unicode_ci')
+
+  at vendor\laravel\framework\src\Illuminate\Database\Connection.php:838
+    834▕             $exceptionType = $this->isUniqueConstraintError($e)
+    835▕                 ? UniqueConstraintViolationException::class
+    836▕                 : QueryException::class;
+    837▕ 
+  ➜ 838▕             throw new $exceptionType(
+    839▕                 $this->getNameWithReadWriteType(),
+    840▕                 $query,
+    841▕                 $this->prepareBindings($bindings),
+    842▕                 $e,
+
+  1   vendor\laravel\framework\src\Illuminate\Database\Connection.php:584
+      PDOException::("SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'id'")
+
+  2   vendor\laravel\framework\src\Illuminate\Database\Connection.php:584
+      PDOStatement::execute()
+
