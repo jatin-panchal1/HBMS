@@ -10,19 +10,35 @@ class BookingController extends Controller
 {
     public function index(){
         $query = bookings::select('booking.*','users.name as user_name');
-        $query->leftJoin('users','booking.id','=','users.id');
+        $query->leftJoin('users','booking.user_id','=','users.id');
         $data = $query->get();
         return view('AdminDashboard.bookings.index',['data'=>$data]);
     }
     public function getBookingsById($id){
         $data = User::get();
         $booking = bookings::find($id);
-        return view('AdminDashboard.bookings.addEdit',['data'=>$data,'booking'=>$booking]);
+        if(Auth::user()->user_type == 1){
+            $view = 'AdminDashboard.bookings.addEdit';
+        } else {
+            $view = 'UserDashboard.bookings.addEdit';
+        }
+        return view($view,['data'=>$data,'booking'=>$booking]);
     }
-    public function userBookings(){}
+    public function userBookings(){
+        $query = bookings::select('booking.*','users.name as user_name');
+        $query->where('booking.user_id' , Auth::user()->id);    
+        $query->leftJoin('users','booking.user_id','=','users.id');
+        $data = $query->get();
+        return view('UserDashboard.bookings.index',['data'=>$data]);
+    }
     public function add(){
         $data = User::get();
-        return view('AdminDashboard.bookings.addEdit',['data'=>$data]);
+        if(Auth::user()->user_type == 1){
+            $view = 'AdminDashboard.bookings.addEdit';
+        } else {
+            $view = 'UserDashboard.bookings.addEdit';
+        }
+        return view($view,['data'=>$data]);
     }
     public function save(Request $request){
         $booking = new \App\Models\bookings([
@@ -32,9 +48,13 @@ class BookingController extends Controller
             'user_id' => Auth::user()->user_type == 1 ? $request->get('user_name') : Auth::id()
         ]);
         $booking->save();
-        return redirect()->route('booking.all');
+        if(Auth::user()->user_type == 1){
+            $route = 'booking.all';
+        }else{
+            $route = 'booking.my';
+        }
+        return redirect()->route($route);
     }
-    
     public function updateBookingsById(Request $request , $id){
         $booking = bookings::find($id);
         $booking->name = $request->get('booking_name');

@@ -1,7 +1,7 @@
 @extends('AdminDashboard.Layout.adminBaseView')
 @section('dashContent')
     <div class="container">
-        <a href="{{route('user.add')}}" class="btn btn-primary mb-2 float-end">Create New User</a>
+        <a href="{{route('User.add')}}" class="btn btn-primary mb-2 float-end">Create New User</a>
         <table class="table table-light table-striped table-hover">
             <thead>
               <tr>
@@ -22,8 +22,8 @@
                     <td><div class="dropdown">
                         <span class="bi bi-list"></span>
                         <div class="dropdown-content">
-                            <a href="{{route('user.edit',['id'=>$user->id])}}"><i class="bi bi-pencil-square"></i> Edit</a>                     
-                            <a href="{{route('user.view.delete',['id'=>$user->id])}}"><i class="bi bi-trash"></i> Delete</a>
+                            <a href="{{route('User.edit',['id'=>$user->id])}}"><i class="bi bi-pencil-square"></i> Edit</a>                     
+                            <a href="{{route('User.view.delete',['id'=>$user->id])}}"><i class="bi bi-trash"></i> Delete</a>
                         </div>
                     </div>
                     </td>

@@ -1,6 +1,6 @@
 @extends('AdminDashboard.Layout.adminBaseView')
 @section('dashContent')
-<form action="{{Request::segment(2)=='add'?route('user.save'):route('user.update',['id'=>Request::segment(2)])}}" method="POST">
+<form action="{{Request::segment(2)=='add'?route('User.save'):route('User.update',['id'=>Request::segment(2)])}}" method="POST">
   @csrf
   <div class="container">    
     <div class="mb-3 w-50">

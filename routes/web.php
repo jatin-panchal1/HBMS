@@ -28,29 +28,29 @@ Route::middleware(['auth'])->group(function (){
     Route::get('booking/add' , [BookingController::class , 'add'])->name('booking.add');
     Route::post('booking/save' , [BookingController::class , 'save'])->name('booking.save');
     Route::get('booking/{id}' , [BookingController::class , 'getBookingsbyId'])->name('booking.edit');
-    Route::post('booking/{id}' , [BookingController::class , 'viewDelete'])->name('booking.view.delete');
-    Route::get('booking/delete/{id}' , [BookingController::class , 'updateBookingsbyId'])->name('booking.update');
+    Route::post('booking/{id}' , [BookingController::class , 'updateBookingsbyId'])->name('booking.update');
+    Route::get('booking/delete/{id}' , [BookingController::class , 'viewDelete'])->name('booking.view.delete');
     Route::post('booking/delete/{id}' , [BookingController::class , 'Delete'])->name('booking.delete');
 
     // Webpage related routes
 
     
     Route::get('WebPage/my' , [WebPageController::class , 'index'])->name('WebPage.my');
-    Route::post('WebPage/add' , [WebPageController::class , 'add'])->name('WebPage.add');
+    Route::get('WebPage/add' , [WebPageController::class , 'add'])->name('WebPage.add');
     Route::post('WebPage/save' , [WebPageController::class , 'save'])->name('WebPage.save');
     Route::get('WebPage/{id}' , [WebPageController::class , 'edit'])->name('WebPage.edit');
-    Route::post('WebPage/{id}' , [WebPageController::class , 'viewDelete'])->name('WebPage.view.delete');
-    Route::get('WebPage/delete/{id}' , [WebPageController::class , 'update'])->name('WebPage.update');
+    Route::post('WebPage/{id}' , [WebPageController::class , 'update'])->name('WebPage.update');
+    Route::get('WebPage/delete/{id}' , [WebPageController::class , 'viewDelete'])->name('WebPage.view.delete');
     Route::post('WebPage/delete/{id}' , [WebPageController::class , 'Delete'])->name('WebPage.delete');
 
     // User related routes 
 
     Route::get('User' , [UserController::class , 'index'])->name('User.my');
-    Route::post('User/add' , [UserController::class , 'add'])->name('User.add');
+    Route::get('User/add' , [UserController::class , 'add'])->name('User.add');
     Route::post('User/save' , [UserController::class , 'save'])->name('User.save');
     Route::get('User/{id}' , [UserController::class , 'edit'])->name('User.edit');
-    Route::post('User/{id}' , [UserController::class , 'viewDelete'])->name('User.view.delete');
-    Route::get('User/delete/{id}' , [UserController::class , 'update'])->name('User.update');
+    Route::post('User/{id}' , [UserController::class , 'update'])->name('User.update');
+    Route::get('User/delete/{id}' , [UserController::class , 'viewDelete'])->name('User.view.delete');
     Route::post('User/delete/{id}' , [UserController::class , 'Delete'])->name('User.delete');
 
     // User profile related routes 
