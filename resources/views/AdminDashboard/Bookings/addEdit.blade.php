@@ -19,16 +19,16 @@
       @endif
       <div class="mb-3 w-50">
           <label for="booking_name" class="form-label">Booking Name</label>
-          <input type="text" class="form-control" id="booking_name" name="booking_name" placeholder="Booking Name" value="{{isset($booking->name)?$booking->name:''}}">
+          <input type="text" class="form-control" id="booking_name" name="booking_name" placeholder="Booking Name" value="{{isset($booking->Name)?$booking->Name:''}}">
       </div>
       <div class="mb-3 w-50">
           <label for="booking_on" class="form-label">Booking on</label>
-          <input type="date" class="form-control" id="booking_on" name="booking_on" placeholder="Booking Date" value="{{isset($booking->booking_datetime)?$booking->booking_datetime:''}}">            
+          <input type="date" class="form-control" id="booking_on" name="booking_on" placeholder="Booking Date" value="{{isset($booking->Date_time)?$booking->Date_time:''}}">            
       </div>
       <div class="mb-3 w-50">
         <label for="booking_status" class="form-label">Booking status</label>
-        <select class="form-select" name="booking_status" aria-label="Default select example">
-          <option selected>Set Status</option>
+        <select class="form-select" name="booking_status" aria-label="Default select example" required>
+          <option value="" selected disabled>Set Status</option>
           <option value="1" {{isset($booking->status) && $booking->status == 1 ? 'selected' : '' }} >Booked</option>
           <option value="2" {{isset($booking->status) && $booking->status == 2 ? 'selected' : '' }} >Booking cancelled</option>
           <option value="3" {{isset($booking->status) && $booking->status == 3 ? 'selected' : '' }} >Booking Fulfilled</option>

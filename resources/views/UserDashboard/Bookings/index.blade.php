@@ -18,8 +18,8 @@
                 <tr>
                     <th scope="row">{{$i}}</th>
                     <td>{{@$booking->user_name}}</td>
-                    <td>{{@$booking->name}}</td>
-                    <td>{{@$booking->booking_datetime}}</td>
+                    <td>{{@$booking->Name}}</td>
+                    <td>{{@$booking->Date_time}}</td>
                     <td><div class="dropdown">
                         <span class="bi bi-list"></span>
                         <div class="dropdown-content">

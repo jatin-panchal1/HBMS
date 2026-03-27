@@ -1,4 +1,4 @@
-@extends('layout.baseview')
+@extends('Layout.baseview')
 @section('title','Login')
 @section('style')
 <style>
@@ -9,7 +9,7 @@
         <div class="row h-100 justify-content-center align-items-center">
             <div class="card" style="width:25rem">
                 <div class="mt-4 mb-2">
-                    <img class="mx-auto d-block" src="{{asset('assets\images\logo.png')}}" alt="logo" width="60">
+                    <img class="mx-auto d-block" src="{{asset('assets\images\logo.jpg')}}" alt="logo" width="60">
                 </div>
                 <div class="mt-2 mb-2">
                     <h5 class="card-title text-center">Login</h5>

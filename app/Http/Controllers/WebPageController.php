@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 
 class WebPageController extends Controller
 {
-    public function index(){}
+    public function index(){
+        return view('index');
+    }
     public function add(){}
     public function save(Request $request){}
     public function update(Request $reqeust , $id){}
@@ -16,5 +18,8 @@ class WebPageController extends Controller
     public function landing(){
         return view('index');
     }
-    public function viewPage($page){}
+    public function viewPage($page){
+        $data = \App\Models\web_page::where('slug' , $page)->first();
+        return view('dynamic', ['data' => $data]);
+    }
 }

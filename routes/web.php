@@ -2,6 +2,7 @@
 use App\Http\Controllers\WebPageController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BookingController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [WebPageController::class , 'landing'])->name('webpage.view');
@@ -11,7 +12,7 @@ Route::get('page/{name}', [WebPageController::class , 'viewPage'])->name('webpag
 Route::post('login',[AuthController::class , 'authenticate'])->name('login.authenticate');
 Route::get('login',[AuthController::class , 'login'])->name('login');
 Route::get('signup',[AuthController::class , 'signup'])->name('signup');
-Route::post('signup',[AuthController::class , 'CreateUser'])->name('signup.Create');
+Route::post('signup',[AuthController::class , 'createUser'])->name('signup.create');
 Route::get('logout', [UserController::class , 'logout'])->name('logout');
 
 // authenticated routes for user and admin
@@ -24,7 +25,7 @@ Route::middleware(['auth'])->group(function (){
     // Routes for booking related actions
     Route::get('booking/all' , [BookingController::class , 'index'])->name('booking.all');
     Route::get('booking/my' , [BookingController::class , 'userBookings'])->name('booking.my');
-    Route::post('booking/add' , [BookingController::class , 'add'])->name('booking.add');
+    Route::get('booking/add' , [BookingController::class , 'add'])->name('booking.add');
     Route::post('booking/save' , [BookingController::class , 'save'])->name('booking.save');
     Route::get('booking/{id}' , [BookingController::class , 'getBookingsbyId'])->name('booking.edit');
     Route::post('booking/{id}' , [BookingController::class , 'viewDelete'])->name('booking.view.delete');

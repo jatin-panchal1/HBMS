@@ -12,6 +12,7 @@ class bookings extends Model
         'email',
         'Date_time',
         'status',
+        'user_id',
         'id',
     ];
 }

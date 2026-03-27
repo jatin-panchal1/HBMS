@@ -1,4 +1,4 @@
-@extends('layout.baseview')
+@extends('Layout.baseview')
 @section('title','Login')
 @section('style')
 <style>
@@ -37,7 +37,7 @@
                         
                         <a href="#" class="nav-item nav-link active">Home</a>
                          <a href="#" class="navbar-brand d-none d-md-block">
-                            <img src="{{asset('assets/images/logo.png')}}"  alt="Brand Logo">
+                            <img src="{{asset('assets/images/logo.jpg')}}"  alt="Brand Logo">
                         </a>
                         @foreach($pages as $page)
                         <a href="{{url('page/'.$page->slug)}}" class="nav-item nav-link text-black">{{$page->name}}</a>                       
